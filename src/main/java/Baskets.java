@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,9 +13,18 @@ public class Baskets {
         this.maxCapacity = maxCapacity;
     }
 
-    public void addToBasket(Bagels bagels) {
+    public void addToBasket(Bagels bagels, int quant) {
+        bagels.setQuantity(quant);
         this.bagelsList.add(bagels);
     }
+
+    public void removeToBasket(Bagels bagels){ this.bagelsList.remove(bagels);}
+
+    public boolean isBasketFull(){
+        return bagelsList.size() >= maxCapacity;
+    }
+
+
 
     public int getMaxCapacity() {
         return maxCapacity;
